@@ -1,0 +1,26 @@
+{
+  "name": "whatis",
+  "version": "1.0.0",
+  "description": "A small util class that cn take input of what and returns an answer",
+  "main": "whatis.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithralaya/WhatIs.git"
+  },
+  "keywords": [
+    "uitls",
+    "node",
+    "npm",
+    "check",
+    "what"
+  ],
+  "author": "Karthik Vasudevan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mithralaya/WhatIs/issues"
+  },
+  "homepage": "https://github.com/mithralaya/WhatIs#readme"
+}
