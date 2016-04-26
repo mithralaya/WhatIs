@@ -4,7 +4,7 @@ var assert = require("assert"),
     What = require("../whatIs");
 
 describe('WhatIs: ', function() {
-  describe('Type', function() {
+  describe('type', function() {
     it("should return String for a string variable", function() {
       assert.equal(What.type("hello"), "String");
     });

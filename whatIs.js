@@ -33,7 +33,7 @@ What.prototype.isNaN = function(what) {
 What.prototype.isFalsey = function(what) {
   if (this.trim(what)) {
     if (this.type(what) === "Object" &&
-        JSON.stringify(what) === JSON.stringify({})) {
+        JSON.stringify(what) === "{}") {
         return true;
     }
     if (this.type(what) === "Array" &&
