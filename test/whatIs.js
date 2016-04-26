@@ -32,6 +32,9 @@ describe('WhatIs: ', function() {
     it("should return undefined for a undefined", function() {
       assert.equal(What.type(undefined), "Undefined");
     });
+    it("should return null for a Null", function() {
+      assert.equal(What.type(null), "Null");
+    });
   });
 
   describe('isNaN', function() {
@@ -61,6 +64,70 @@ describe('WhatIs: ', function() {
     });
     it("should return false for array", function() {
       assert.equal(What.isNaN([]), false);
+    });
+    it("should return false for null", function() {
+      assert.equal(What.isNaN(null), false);
+    });
+  });
+
+  describe('isFalsey', function() {
+    it("should return true for false", function() {
+      assert.equal(What.isFalsey(false), true);
+    });
+    it("should return true for null", function() {
+      assert.equal(What.isFalsey(null), true);
+    });
+    it("should return true for 0", function() {
+      assert.equal(What.isFalsey(0), true);
+    });
+    it("should return true for undefined", function() {
+      assert.equal(What.isFalsey(undefined), true);
+    });
+    it("should return true for NaN", function() {
+      assert.equal(What.isFalsey(NaN), true);
+    });
+    it("should return true for empty string", function() {
+      assert.equal(What.isFalsey(""), true);
+    });
+    it("should return true for a empty string with spaces", function() {
+      assert.equal(What.isFalsey("        "), true);
+    });
+
+    it("should return true for a empty object", function() {
+      assert.equal(What.isFalsey({
+
+      }), true);
+    });
+    it("should return true for a empty array", function() {
+      assert.equal(What.isFalsey([]), true);
+    });
+    it("should return true for a falsey array", function() {
+      assert.equal(What.isFalsey(["", null, 0, NaN, undefined, false]), true);
+    });
+    it("should return false for a empty object", function() {
+      assert.equal(What.isFalsey({
+        "hello": "world"
+      }), false);
+    });
+    it("should return false for a empty array", function() {
+      assert.equal(What.isFalsey(["hello"]), false);
+    });
+    it("should return false for 1", function() {
+      assert.equal(What.isFalsey(1), false);
+    });
+    it("should return false for a string", function() {
+      assert.equal(What.isFalsey("dfsdf"), false);
+    });
+  });
+  describe('trim', function() {
+    it("should return empty string for a string with space", function() {
+      assert.equal(What.trim("          "), "");
+    });
+    it("should return empty string for a string with prefix and sufix space", function() {
+      assert.equal(What.trim("     Hello     "), "Hello");
+    });
+    it("should return a trimed array by removing all falsey objects", function() {
+      assert.deepEqual(What.trim(["", null, 0, NaN, undefined, false, "Hello"]), ["Hello"]);
     });
   });
 });
