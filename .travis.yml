@@ -4,3 +4,5 @@ node_js:
 before_script:
   - npm install grunt-cli -g
 script: grunt
+notifications:
+  slack: teamfirstapp:mIMH5c3vyIoYmwp94bdnCqA8
