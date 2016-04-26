@@ -1,5 +1,5 @@
-# WhatIs [![travis-ci](https://travis-ci.org/mithralaya/WhatIs.svg?branch=master)](https://travis-ci.org/mithralaya/WhatIs)
-A small util class that can take input and returns an answer for general javascript utility.
+# WhatIs [![Build Status](https://travis-ci.org/mithralaya/WhatIs.svg?branch=master)](https://travis-ci.org/mithralaya/WhatIs)
+A small util class.
 
 The plugin is only available for Node.JS currently.
 
