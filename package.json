@@ -1,7 +1,7 @@
 {
   "name": "whatis",
   "version": "1.0.0",
-  "description": "A small util class that cn take input of what and returns an answer",
+  "description": "A small util class that can take input of what and returns an answer",
   "main": "whatis.js",
   "scripts": {
     "test": "grunt test"
@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/mithralaya/WhatIs/issues"
   },
-  "homepage": "https://github.com/mithralaya/WhatIs#readme"
+  "homepage": "https://github.com/mithralaya/WhatIs#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jscs": "^2.8.0",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.4.5"
+  }
 }
