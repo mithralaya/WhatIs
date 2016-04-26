@@ -1,18 +1,26 @@
 "use strict";
 
-function W() {
+function What() {
 
 }
-
-W.prototype.type = function(what) {
+/**
+ * [function description]
+ * @param  {[any]} what [input any type]
+ * @return {[String]}      [returns the string of type]
+ */
+What.prototype.type = function(what) {
   return Object.prototype.toString.call(what).slice(8, -1);
 };
-
-W.prototype.isNaN = function(what) {
+/**
+ * [function description]
+ * @param  {[any]} what [description]
+ * @return {[type]}      [description]
+ */
+What.prototype.isNaN = function(what) {
   if (what !== what) {
     return true;
   }
   return false;
 };
 
-module.exports = new W();
+module.exports = new What();
