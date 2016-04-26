@@ -17,27 +17,27 @@ var W = require('TFWhatIs');
 
 ##Functions available
 
-###Type:
+####type:
 ```
-W.type("hello world"); //returns 'String'
-W.type(123); //returns 'Number'
-W.type(123.23); //returns 'Number'
-W.type(NaN); //returns 'Number'
-W.type({}); //returns 'Object'
-W.type(undefined); //returns 'Undefined'
-W.type([]); //returns 'Array'
-W.type(true); //returns 'Boolean'
-W.type(new Date()); //returns 'Date'
-W.type(null); //returns 'Null'
+W.type("hello world"); //'String'
+W.type(123); //'Number'
+W.type(123.23); //'Number'
+W.type(NaN); //'Number'
+W.type({}); //'Object'
+W.type(undefined); //'Undefined'
+W.type([]); //'Array'
+W.type(true); //'Boolean'
+W.type(new Date()); //'Date'
+W.type(null); //'Null'
 ```
 
-###NaN:
+####isNaN:
 ```
 W.isNaN(NaN); //true
 W.isNaN(1312); //false
 ```
 
-###Falsey: even checks for empty object and empty array
+####isFalsey: even checks for empty object and array
 ```
 W.isFalsey(false); //true
 W.isFalsey(null); //true
@@ -48,10 +48,10 @@ W.isFalsey({}); //true
 W.isFalsey([]); //true
 W.isFalsey(undefined); //true
 W.isFalsey(NaN); //true
-W.isFalsey(["", null, 0, NaN, undefined, false]); //true
+W.isFalsey(["", null, 0, NaN, undefined, , false]); //true
 ```
 
-###trim:
+####trim:
 ```
 W.trim("          "); //""
 W.trim("    hello   "); //"hello"
