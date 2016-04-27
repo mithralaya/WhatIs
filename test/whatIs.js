@@ -23,6 +23,12 @@ describe('WhatIs: ', function() {
     it("should return NaN string for NaN", function() {
       assert.equal(What.type(NaN), "NaN");
     });
+    it("should return Number string for Infinity", function() {
+      assert.equal(What.type(1 / 0), "Number");
+    });
+    it("should return Number string for -Infinity", function() {
+      assert.equal(What.type(-1 / 0), "Number");
+    });
     it("should return Object for object", function() {
       assert.equal(What.type({}), "Object");
     });

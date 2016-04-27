@@ -17,12 +17,14 @@ var W = require('TFWhatIs');
 
 ##Functions available
 
-####type: also checks for email, url, phone number(uses libphonenumber library), NaN, Float and Int  types
+####type: also checks for email, url, phone number(uses libphonenumber library), NaN, Float, Int and Infinity  types
 ```
 W.type("hello world"); //'String'
 W.type(123); //'Int'
 W.type(123.23); //'Float'
 W.type(NaN); //'NaN'
+W.type(Infinity); //'Number'
+W.type(-Infinity); //'Number'
 W.type({}); //'Object'
 W.type(undefined); //'Undefined'
 W.type([]); //'Array'

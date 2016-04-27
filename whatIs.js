@@ -33,10 +33,14 @@ What.prototype.type = function(what) {
   if (type === "Number") {
     if (this.isNaN(what)) {
       return 'NaN';
-    } else if (what % 1 !== 0) {
+    } else if (what % 1 !== 0 &&
+              what !== Infinity &&
+              what !== -Infinity) {
       return 'Float';
-    } else {
+    } else if (what % 1 === 0) {
       return 'Int';
+    } else {
+      return 'Number';
     }
   }
   return type;
