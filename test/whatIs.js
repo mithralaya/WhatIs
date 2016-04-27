@@ -53,11 +53,20 @@ describe('WhatIs: ', function() {
     it("should return Email for an email address", function() {
       assert.equal(What.type("test@test.com"), "Email");
     });
+    it("should return Email for an email address with string", function() {
+      assert.equal(What.type("test@test.com is my email address"), "String");
+    });
     it("should return Url for a web address", function() {
       assert.equal(What.type("http://www.google.com/?q=testing"), "Url");
     });
     it("should return Phone for a phone number", function() {
       assert.equal(What.type("+44 7700 900804"), "Phone");
+    });
+    it("should return String for a string + phone number", function() {
+      assert.equal(What.type("My phone number is - +44 7700 900804"), "String");
+    });
+    it("should return String for a phone number + string", function() {
+      assert.equal(What.type("+44 7700 900804 - is my phone number"), "String");
     });
   });
 
