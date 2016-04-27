@@ -14,14 +14,14 @@ describe('WhatIs: ', function() {
     it("should return Boolean for false", function() {
       assert.equal(What.type(false), "Boolean");
     });
-    it("should return Number for int", function() {
-      assert.equal(What.type(234), "Number");
+    it("should return Int for int", function() {
+      assert.equal(What.type(234), "Int");
     });
-    it("should return Number for decimal", function() {
-      assert.equal(What.type(234.23), "Number");
+    it("should return Float for decimal", function() {
+      assert.equal(What.type(234.23), "Float");
     });
-    it("should return Number for NaN", function() {
-      assert.equal(What.type(NaN), "Number");
+    it("should return NaN string for NaN", function() {
+      assert.equal(What.type(NaN), "NaN");
     });
     it("should return Object for object", function() {
       assert.equal(What.type({}), "Object");
@@ -32,10 +32,10 @@ describe('WhatIs: ', function() {
     it("should return Date for a date", function() {
       assert.equal(What.type(new Date()), "Date");
     });
-    it("should return undefined for a undefined", function() {
+    it("should return Undefined string for a undefined", function() {
       assert.equal(What.type(undefined), "Undefined");
     });
-    it("should return Null for a null value", function() {
+    it("should return Null string for a null value", function() {
       assert.equal(What.type(null), "Null");
     });
     it("should return Email for an email address", function() {
@@ -45,7 +45,7 @@ describe('WhatIs: ', function() {
       assert.equal(What.type("http://www.google.com/?q=testing"), "Url");
     });
     it("should return Phone for a phone number", function() {
-      assert.equal(What.type("+447595171946"), "Phone");
+      assert.equal(What.type("+44 7700 900804"), "Phone");
     });
   });
 

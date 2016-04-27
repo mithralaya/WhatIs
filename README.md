@@ -17,12 +17,12 @@ var W = require('TFWhatIs');
 
 ##Functions available
 
-####type: also checks for email and url types
+####type: also checks for email, url, phone number(uses libphonenumber library), NaN, Float and Int  types
 ```
 W.type("hello world"); //'String'
-W.type(123); //'Number'
-W.type(123.23); //'Number'
-W.type(NaN); //'Number'
+W.type(123); //'Int'
+W.type(123.23); //'Float'
+W.type(NaN); //'NaN'
 W.type({}); //'Object'
 W.type(undefined); //'Undefined'
 W.type([]); //'Array'
@@ -31,6 +31,7 @@ W.type(new Date()); //'Date'
 W.type(null); //'Null'
 W.type("test@test.com"); //'Email'
 W.type("http://www.google.com/?q=testing"); //'Url'
+W.type("+44 7700 900804"); //'Phone'
 ```
 
 ####isNaN:

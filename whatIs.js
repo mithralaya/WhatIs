@@ -1,5 +1,7 @@
 "use strict";
 
+var phoneNumber = require("libphonenumber");
+
 function What() {
 
 }
@@ -13,7 +15,6 @@ What.prototype.type = function(what) {
   var type = Object.prototype.toString.call(what).slice(8, -1);
   var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   var url = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
-  var phoneNo = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if (type === "String") {
     if (email.test(what)) {
       return 'Email';
@@ -21,8 +22,21 @@ What.prototype.type = function(what) {
     if (url.test(what)) {
       return 'Url';
     }
-    if (phoneNo.test(what)) {
-      return 'Phone';
+    try {
+      if (phoneNumber.validate(what) === true) {
+        return 'Phone';
+      }
+    } catch (e) {
+      return 'String';
+    }
+  }
+  if (type === "Number") {
+    if (this.isNaN(what)) {
+      return 'NaN';
+    } else if (what % 1 !== 0) {
+      return 'Float';
+    } else {
+      return 'Int'
     }
   }
   return type;
