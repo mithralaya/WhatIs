@@ -36,7 +36,7 @@ What.prototype.type = function(what) {
     } else if (what % 1 !== 0) {
       return 'Float';
     } else {
-      return 'Int'
+      return 'Int';
     }
   }
   return type;
