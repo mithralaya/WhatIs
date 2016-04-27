@@ -17,7 +17,7 @@ var W = require('TFWhatIs');
 
 ##Functions available
 
-####type:
+####type: also checks for email and url types
 ```
 W.type("hello world"); //'String'
 W.type(123); //'Number'
@@ -29,6 +29,8 @@ W.type([]); //'Array'
 W.type(true); //'Boolean'
 W.type(new Date()); //'Date'
 W.type(null); //'Null'
+W.type("test@test.com"); //'Email'
+W.type("http://www.google.com/?q=testing"); //'Url'
 ```
 
 ####isNaN:

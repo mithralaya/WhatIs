@@ -8,6 +8,9 @@ describe('WhatIs: ', function() {
     it("should return String for a string variable", function() {
       assert.equal(What.type("hello"), "String");
     });
+    it("should return String for a empty string", function() {
+      assert.equal(What.type(""), "String");
+    });
     it("should return Boolean for false", function() {
       assert.equal(What.type(false), "Boolean");
     });
@@ -32,8 +35,17 @@ describe('WhatIs: ', function() {
     it("should return undefined for a undefined", function() {
       assert.equal(What.type(undefined), "Undefined");
     });
-    it("should return null for a Null", function() {
+    it("should return Null for a null value", function() {
       assert.equal(What.type(null), "Null");
+    });
+    it("should return Email for an email address", function() {
+      assert.equal(What.type("test@test.com"), "Email");
+    });
+    it("should return Url for an web address", function() {
+      assert.equal(What.type("http://www.google.com/?q=testing"), "Url");
+    });
+    it("should return Phone for a phone number", function() {
+      assert.equal(What.type("+447595171946"), "Phone");
     });
   });
 
