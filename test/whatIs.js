@@ -17,8 +17,14 @@ describe('WhatIs: ', function() {
     it("should return Int for int", function() {
       assert.equal(What.type(234), "Int");
     });
+    it("should return Int for -int", function() {
+      assert.equal(What.type(-234), "Int");
+    });
     it("should return Float for decimal", function() {
       assert.equal(What.type(234.23), "Float");
+    });
+    it("should return Float for -decimal", function() {
+      assert.equal(What.type(-234.23), "Float");
     });
     it("should return NaN string for NaN", function() {
       assert.equal(What.type(NaN), "NaN");
