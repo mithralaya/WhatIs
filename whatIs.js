@@ -83,6 +83,28 @@ What.prototype.isFalsey = function(what) {
  * @param  {[type]} what [description]
  * @return {[type]}      [description]
  */
+What.prototype.isEmpty = function(what) {
+  if (this.trim(what) ||
+      this.trim(what) === false ||
+      this.trim(what) === 0) {
+    if (this.type(what) === "Object" &&
+        JSON.stringify(what) === "{}") {
+        return true;
+    }
+    if (this.type(what) === "Array" &&
+        what.length === 0) {
+        return true;
+    }
+    return false;
+  }
+  return true;
+};
+
+/**
+ * [function description]
+ * @param  {[type]} what [description]
+ * @return {[type]}      [description]
+ */
 What.prototype.trim = function(what) {
   if (this.type(what) === "String") {
     return what.trim();

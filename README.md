@@ -56,6 +56,20 @@ W.isFalsey(NaN); //true
 W.isFalsey(["", null, 0, NaN, undefined, , false]); //true
 ```
 
+####isEmpty: same as isFalsey but it returns false for false and 0 this helps to check required fields
+```
+W.isEmpty(false); //false
+W.isEmpty(null); //true
+W.isEmpty(0); //false
+W.isEmpty(""); //true
+W.isEmpty("   "); //true
+W.isEmpty({}); //true
+W.isEmpty([]); //true
+W.isEmpty(undefined); //true
+W.isEmpty(NaN); //true
+W.isEmpty(["", null, 0, NaN, undefined, , false]); //false
+```
+
 ####trim:
 ```
 W.trim("          "); //""
