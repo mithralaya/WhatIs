@@ -93,7 +93,7 @@ What.prototype.isEmpty = function(what) {
     }
     if (this.type(what) === "Array" &&
         what.length === 0) {
-        return true;
+      return true;
     }
     return false;
   }

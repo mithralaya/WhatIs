@@ -1,7 +1,7 @@
 # WhatIs [![Build Status](https://travis-ci.org/mithralaya/WhatIs.svg?branch=master)](https://travis-ci.org/mithralaya/WhatIs)
 A small util class.
 
-The plugin is only available for Node.JS currently.
+*The plugin is only available for Node.JS currently.*
 
 ##Install package
 
@@ -56,7 +56,7 @@ W.isFalsey(NaN); //true
 W.isFalsey(["", null, 0, NaN, undefined, , false]); //true
 ```
 
-####isEmpty: same as isFalsey but it returns false for false and 0 this helps to check required fields
+####isEmpty: same as isFalsey but it returns false for false and 0. This helps to check required fields
 ```
 W.isEmpty(false); //false
 W.isEmpty(null); //true
