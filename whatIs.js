@@ -115,4 +115,45 @@ What.prototype.trim = function(what) {
   return what;
 };
 
+/**
+ * [function description]
+ * @param  {[type]} what  [description]
+ * @param  {[type]} query [description]
+ * @return {[type]}       [description]
+ */
+What.prototype.prefixInArray = function(what, query) {
+  var type = this.type(what),
+      matches;
+  if (this.type(query) === "String" && type === "Array") {
+    matches = what.filter(function(whatValue) {
+      if (whatValue) {
+        return (whatValue.substring(0, query.length) === query);
+      }
+    });
+  }
+
+  return what;
+};
+
+/**
+ * [function description]
+ * @param  {[type]} what  [description]
+ * @param  {[type]} query [description]
+ * @return {[type]}       [description]
+ */
+What.prototype.sufixInArray = function(what, query) {
+  var type = this.type(what),
+      matches;
+  if (this.type(query) === "String" && type === "Array") {
+    matches = what.filter(function(whatValue) {
+      if (whatValue) {
+        let valueLength = whatValue.length;
+        return (whatValue.substring(valueLength - query.length, valueLength) === query);
+      }
+    });
+  }
+
+  return what;
+};
+
 module.exports = new What();
