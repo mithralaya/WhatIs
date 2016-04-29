@@ -70,6 +70,72 @@ describe('WhatIs: ', function() {
     });
   });
 
+  describe('trueType', function() {
+    it("should return String for a string variable", function() {
+      assert.equal(What.trueType("hello"), "String");
+    });
+    it("should return String for a empty string", function() {
+      assert.equal(What.trueType(""), "String");
+    });
+    it("should return Boolean for false", function() {
+      assert.equal(What.trueType(false), "Boolean");
+    });
+    it("should return Int for int", function() {
+      assert.equal(What.trueType(234), "Number");
+    });
+    it("should return Int for -int", function() {
+      assert.equal(What.trueType(-234), "Number");
+    });
+    it("should return Float for decimal", function() {
+      assert.equal(What.trueType(234.23), "Number");
+    });
+    it("should return Float for -decimal", function() {
+      assert.equal(What.trueType(-234.23), "Number");
+    });
+    it("should return NaN string for NaN", function() {
+      assert.equal(What.trueType(NaN), "Number");
+    });
+    it("should return Number string for Infinity", function() {
+      assert.equal(What.trueType(1 / 0), "Number");
+    });
+    it("should return Number string for -Infinity", function() {
+      assert.equal(What.trueType(-1 / 0), "Number");
+    });
+    it("should return Object for object", function() {
+      assert.equal(What.trueType({}), "Object");
+    });
+    it("should return Array for array", function() {
+      assert.equal(What.trueType([]), "Array");
+    });
+    it("should return Date for a date", function() {
+      assert.equal(What.trueType(new Date()), "Date");
+    });
+    it("should return Undefined string for a undefined", function() {
+      assert.equal(What.trueType(undefined), "Undefined");
+    });
+    it("should return Null string for a null value", function() {
+      assert.equal(What.trueType(null), "Null");
+    });
+    it("should return Email for an email address", function() {
+      assert.equal(What.trueType("test@test.com"), "String");
+    });
+    it("should return Email for an email address with string", function() {
+      assert.equal(What.trueType("test@test.com is my email address"), "String");
+    });
+    it("should return Url for a web address", function() {
+      assert.equal(What.trueType("http://www.google.com/?q=testing"), "String");
+    });
+    it("should return Phone for a phone number", function() {
+      assert.equal(What.trueType("+44 7700 900804"), "String");
+    });
+    it("should return String for a string + phone number", function() {
+      assert.equal(What.trueType("My phone number is - +44 7700 900804"), "String");
+    });
+    it("should return String for a phone number + string", function() {
+      assert.equal(What.trueType("+44 7700 900804 - is my phone number"), "String");
+    });
+  });
+
   describe('isNaN', function() {
     it("should return true for NaN", function() {
       assert.equal(What.isNaN(NaN), true);
@@ -134,6 +200,9 @@ describe('WhatIs: ', function() {
     it("should return true for an empty array", function() {
       assert.equal(What.isFalsey([]), true);
     });
+    it("should return false for an array of empty array", function() {
+      assert.equal(What.isFalsey([[]]), false);
+    });
     it("should return true for a falsey array", function() {
       assert.equal(What.isFalsey(["", null, 0, NaN, undefined, false]), true);
     });
@@ -184,6 +253,9 @@ describe('WhatIs: ', function() {
     it("should return true for an empty array", function() {
       assert.equal(What.isEmpty([]), true);
     });
+    it("should return false for an array of empty arrays", function() {
+      assert.equal(What.isEmpty([[]]), false);
+    });
     it("should return false for a falsey array", function() {
       assert.equal(What.isEmpty(["", null, 0, NaN, undefined, false]), false);
     });
@@ -222,7 +294,7 @@ describe('WhatIs: ', function() {
     it("should return a array of elements starts with H and ignore all falsey objects", function() {
       assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "H"), ["Hello", "Hola"]);
     });
-    it("should return an empty array if non matches", function() {
+    it("should return an empty array if nothing matches", function() {
       assert.deepEqual(What.prefixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"), []);
     });
     it("should return the same array if query is not a string", function() {
@@ -233,6 +305,32 @@ describe('WhatIs: ', function() {
     });
     it("should return the same array if the query is empty", function() {
       assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome"], ""), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the same array if the array has another array", function() {
+      assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome", ["Hello"]], "H"), ["Hello", "Hola"]);
+    });
+  });
+  describe('sufixInArray', function() {
+    it("should return a array of elements ends with e", function() {
+      assert.deepEqual(What.sufixInArray(["Hello", "Whole", "Welcome"], "e"), ["Whole", "Welcome"]);
+    });
+    it("should return a array of elements ends with e and ignore all falsey objects", function() {
+      assert.deepEqual(What.sufixInArray(["Hello", "Whole", "Welcome", null, undefined, 0, false, NaN], "e"), ["Whole", "Welcome"]);
+    });
+    it("should return an empty array if nothing matches", function() {
+      assert.deepEqual(What.sufixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "s"), []);
+    });
+    it("should return the same array if query is not a string", function() {
+      assert.deepEqual(What.sufixInArray(["Hello", "Hola", "Welcome"], undefined), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the input if its not array", function() {
+      assert.deepEqual(What.sufixInArray(null, undefined), null);
+    });
+    it("should return the same array if the query is empty", function() {
+      assert.deepEqual(What.sufixInArray(["Hello", "Hola", "Welcome"], ""), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the same array if the array has another array", function() {
+      assert.deepEqual(What.sufixInArray(["Hello", "Whole", "Welcome", ["Hello"]], "e"), ["Whole", "Welcome"]);
     });
   });
 });

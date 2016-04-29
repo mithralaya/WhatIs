@@ -48,6 +48,15 @@ What.prototype.type = function(what) {
 
 /**
  * [function description]
+ * @param  {[type]} what [description]
+ * @return {[type]}      [description]
+ */
+What.prototype.trueType = function(what) {
+  return Object.prototype.toString.call(what).slice(8, -1);
+};
+
+/**
+ * [function description]
  * @param  {[any]} what [description]
  * @return {[type]}      [description]
  */
@@ -123,10 +132,16 @@ What.prototype.trim = function(what) {
  */
 What.prototype.prefixInArray = function(what, query) {
   var type = this.type(what),
-      matches;
-  if (this.type(query) === "String" && type === "Array") {
+      matches,
+      _this = this;
+  if (this.type(query) === "String" &&
+      query.length > 0 &&
+      type === "Array" &&
+      type.length > 0) {
     matches = what.filter(function(whatValue) {
-      if (whatValue) {
+      var valueType = _this.trueType(whatValue);
+      if (whatValue &&
+          valueType === "String") {
         return (whatValue.substring(0, query.length) === query);
       }
     });
@@ -144,13 +159,16 @@ What.prototype.prefixInArray = function(what, query) {
  */
 What.prototype.sufixInArray = function(what, query) {
   var type = this.type(what),
-      matches;
+      matches,
+      _this = this;
   if (this.type(query) === "String" &&
       query.length > 0 &&
       type === "Array" &&
       type.length > 0) {
     matches = what.filter(function(whatValue) {
-      if (whatValue) {
+      var valueType = _this.trueType(whatValue);
+      if (whatValue &&
+          valueType === "String") {
         let valueLength = whatValue.length;
         return (whatValue.substring(valueLength - query.length, valueLength) === query);
       }
