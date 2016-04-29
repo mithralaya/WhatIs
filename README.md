@@ -5,13 +5,13 @@ A small util class.
 
 ##Install package
 
-```
+```js
 npm install TFWhatIs
 ```
 
 ##Include package
 
-```
+```js
 var W = require('TFWhatIs');
 ```
 
@@ -29,7 +29,7 @@ var W = require('TFWhatIs');
 
 Also checks for email, url, phone number(uses libphonenumber library), NaN, Float, Int and Infinity  types
 
-```
+```js
 W.type("hello world"); //'String'
 W.type(123); //'Int'
 W.type(123.23); //'Float'
@@ -51,7 +51,7 @@ W.type("+44 7700 900804"); //'Phone'
 
 Just check for type and returns true javascript type for an object
 
-```
+```js
 W.type("hello world"); //'String'
 W.type(123); //'Number'
 W.type(123.23); //'Number'
@@ -70,7 +70,7 @@ W.type("+44 7700 900804"); //'String'
 ```
 
 ####isNaN:
-```
+```js
 W.isNaN(NaN); //true
 W.isNaN(1312); //false
 ```
@@ -79,7 +79,7 @@ W.isNaN(1312); //false
 
 Even checks for empty object and array.
 
-```
+```js
 W.isFalsey(false); //true
 W.isFalsey(null); //true
 W.isFalsey(0); //true
@@ -96,7 +96,7 @@ W.isFalsey(["", null, 0, NaN, undefined, , false]); //true
 
 Same as isFalsey but it returns false for false and 0. This helps to check required fields
 
-```
+```js
 W.isEmpty(false); //false
 W.isEmpty(null); //true
 W.isEmpty(0); //false
@@ -110,14 +110,14 @@ W.isEmpty(["", null, 0, NaN, undefined, , false]); //false
 ```
 
 ####trim:
-```
+```js
 W.trim("          "); //""
 W.trim("    hello   "); //"hello"
 W.trim(["", null, 0, NaN, undefined, false, , "hello"]); //["hello"]
 ```
 
 ####prefixInArray:
-```
+```js
 W.prefixInArray(["Hello", "Hola", "Welcome"], "H"); //["Hello", "Hola"]
 W.prefixInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "H"); //["Hello", "Hola"]);
 W.prefixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"); //[]
@@ -127,8 +127,8 @@ W.prefixInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"
 W.prefixInArray(["Hello", "Hola", "Welcome",["Hello"]], "H"); //["Hello", "Hola"]
 ```
 
-####prefixInArray:
-```
+####sufixInArray:
+```js
 W.prefixInArray(["Hello", "Hola", "Welcome"], "H"); //["Hello", "Hola"]
 W.prefixInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "H"); //["Hello", "Hola"]);
 W.prefixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"); //[]
