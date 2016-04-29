@@ -130,6 +130,7 @@ What.prototype.prefixInArray = function(what, query) {
         return (whatValue.substring(0, query.length) === query);
       }
     });
+    return matches;
   }
 
   return what;
@@ -144,13 +145,17 @@ What.prototype.prefixInArray = function(what, query) {
 What.prototype.sufixInArray = function(what, query) {
   var type = this.type(what),
       matches;
-  if (this.type(query) === "String" && type === "Array") {
+  if (this.type(query) === "String" &&
+      query.length > 0 &&
+      type === "Array" &&
+      type.length > 0) {
     matches = what.filter(function(whatValue) {
       if (whatValue) {
         let valueLength = whatValue.length;
         return (whatValue.substring(valueLength - query.length, valueLength) === query);
       }
     });
+    return matches;
   }
 
   return what;

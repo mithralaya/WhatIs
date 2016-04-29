@@ -214,4 +214,25 @@ describe('WhatIs: ', function() {
       assert.deepEqual(What.trim(["", null, 0, NaN, undefined, false, "Hello"]), ["Hello"]);
     });
   });
+
+  describe('prefixInArray', function() {
+    it("should return a array of elements starts with H", function() {
+      assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome"], "H"), ["Hello", "Hola"]);
+    });
+    it("should return a array of elements starts with H and ignore all falsey objects", function() {
+      assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "H"), ["Hello", "Hola"]);
+    });
+    it("should return an empty array if non matches", function() {
+      assert.deepEqual(What.prefixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"), []);
+    });
+    it("should return the same array if query is not a string", function() {
+      assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome"], undefined), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the input if its not array", function() {
+      assert.deepEqual(What.prefixInArray(null, undefined), null);
+    });
+    it("should return the same array if the query is empty", function() {
+      assert.deepEqual(What.prefixInArray(["Hello", "Hola", "Welcome"], ""), ["Hello", "Hola", "Welcome"]);
+    });
+  });
 });
