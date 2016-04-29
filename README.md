@@ -141,4 +141,4 @@ W.prefixInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"
 
 The MIT License (MIT)
 
-[Back to Top](#WhatIs)
+[Back to Top](#whatis-)
