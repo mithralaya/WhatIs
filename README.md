@@ -2,6 +2,7 @@
 A small util class.
 
 > The plugin is only available for Node.JS currently.
+> TF stands for [Team First](http://teamfirstapp.com)
 
 ##Install package
 
