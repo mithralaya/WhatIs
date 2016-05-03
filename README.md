@@ -2,13 +2,13 @@
 A small util class.
 
 > The plugin is only available for Node.JS currently.
-> TF stands for [Team First](http://teamfirstapp.com)
 
 ##Install package
 
 ```js
 npm install TFWhatIs
 ```
+*TF stands for [Team First](http://teamfirstapp.com)*
 
 ##Include package
 
