@@ -25,6 +25,7 @@ var W = require('TFWhatIs');
   - [trim](#trim)
   - [prefixInArray](#prefixInArray)
   - [sufixInArray](#sufixInArray)
+  - [findInArray](#findInArray)
 
 ####type:
 
@@ -130,12 +131,22 @@ W.prefixInArray(["Hello", "Hola", "Welcome",["Hello"]], "H"); //["Hello", "Hola"
 
 ####sufixInArray:
 ```js
-W.prefixInArray(["Hello", "Hola", "Welcome"], "H"); //["Hello", "Hola"]
-W.prefixInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "H"); //["Hello", "Hola"]);
-W.prefixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"); //[]
-W.prefixInArray(["Hello", "Hola", "Welcome"], undefined); //["Hello", "Hola", "Welcome"]
-W.prefixInArray(null, undefined); //null
-W.prefixInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"]
+W.sufixInArray(["Hello", "Hole", "Welcome"], "e"); //["Hole", "Welcome"]
+W.sufixInArray(["Hello", "Hole", "Welcome", null, undefined, 0, false, NaN], "e"); //["Hole", "Welcome"]
+W.sufixInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "H"); //[]
+W.sufixInArray(["Hello", "Hola", "Welcome"], undefined); //["Hello", "Hola", "Welcome"]
+W.sufixInArray(null, undefined); //null
+W.sufixInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"]
+```
+
+####findInArray:
+```js
+W.findInArray(["Hello", "Hola", "Welcome"], "el"); //["Hello", "Welcome"]
+W.findInArray(["Hello", "Hola", "Welcome", null, undefined, 0, false, NaN], "el"); //["Hello", "Welcome"]);
+W.findInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "z"); //[]
+W.findInArray(["Hello", "Hola", "Welcome"], undefined); //["Hello", "Hola", "Welcome"]
+W.findInArray(null, undefined); //null
+W.findInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"]
 ```
 
 ##LICENSE

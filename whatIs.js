@@ -179,4 +179,31 @@ What.prototype.sufixInArray = function(what, query) {
   return what;
 };
 
+/**
+ * [function description]
+ * @param  {[type]} what  [description]
+ * @param  {[type]} query [description]
+ * @return {[type]}       [description]
+ */
+What.prototype.findInArray = function(what, query) {
+  var type = this.type(what),
+      matches,
+      _this = this;
+  if (this.type(query) === "String" &&
+      query.length > 0 &&
+      type === "Array" &&
+      type.length > 0) {
+    matches = what.filter(function(whatValue) {
+      var valueType = _this.trueType(whatValue);
+      if (whatValue &&
+          valueType === "String") {
+        return whatValue.indexOf(query) >= 0;
+      }
+    });
+    return matches;
+  }
+
+  return what;
+};
+
 module.exports = new What();

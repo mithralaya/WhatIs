@@ -333,4 +333,28 @@ describe('WhatIs: ', function() {
       assert.deepEqual(What.sufixInArray(["Hello", "Whole", "Welcome", ["Hello"]], "e"), ["Whole", "Welcome"]);
     });
   });
+
+  describe('findInArray', function() {
+    it("should return an array of elements which contains el", function() {
+      assert.deepEqual(What.findInArray(["Hello", "Whole", "Welcome"], "el"), ["Hello", "Welcome"]);
+    });
+    it("should return an array of elements which contains el and ignore all falsey objects", function() {
+      assert.deepEqual(What.findInArray(["Hello", "Whole", "Welcome", null, undefined, 0, false, NaN], "el"), ["Hello", "Welcome"]);
+    });
+    it("should return an empty array if nothing matches", function() {
+      assert.deepEqual(What.findInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "z"), []);
+    });
+    it("should return the same array if query is not a string", function() {
+      assert.deepEqual(What.findInArray(["Hello", "Hola", "Welcome"], undefined), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the input if its not array", function() {
+      assert.deepEqual(What.findInArray(null, undefined), null);
+    });
+    it("should return the same array if the query is empty", function() {
+      assert.deepEqual(What.findInArray(["Hello", "Hola", "Welcome"], ""), ["Hello", "Hola", "Welcome"]);
+    });
+    it("should return the same array if the array has another array", function() {
+      assert.deepEqual(What.findInArray(["Hello", "Whole", "Welcome", ["Hello"]], "el"), ["Hello", "Welcome"]);
+    });
+  });
 });
