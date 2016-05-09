@@ -26,6 +26,7 @@ var W = require('TFWhatIs');
   - [prefixInArray](#prefixInArray)
   - [sufixInArray](#sufixInArray)
   - [findInArray](#findInArray)
+  - [for](#for)
 
 ####type:
 
@@ -147,6 +148,23 @@ W.findInArray(["Wello", "Wola", "Welcome", null, undefined, 0, false, NaN], "z")
 W.findInArray(["Hello", "Hola", "Welcome"], undefined); //["Hello", "Hola", "Welcome"]
 W.findInArray(null, undefined); //null
 W.findInArray(["Hello", "Hola", "Welcome"], ""); //["Hello", "Hola", "Welcome"]
+```
+
+####for
+
+does for in loop and checks for hasOwnProperty for both objects and arrays in one line.
+
+```js
+W.for([1, 2, 3, 4], function(index, item, items) {
+  //do something
+});
+W.for({"key": "value"}, function(index, item, items) {
+  //do something
+});
+W.for(undefined, function(index, item, items) {
+  //do something
+}); //throws an error 'Unexpected type'
+W.for(undefined, undefined) // returns undefined
 ```
 
 ##LICENSE

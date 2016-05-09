@@ -206,4 +206,28 @@ What.prototype.findInArray = function(what, query) {
   return what;
 };
 
+/**
+ * [function description]
+ * @param  {[type]}   items [description]
+ * @param  {Function} cb    [description]
+ * @return {[type]}         [description]
+ */
+What.prototype.for = function(items, cb) {
+  if (this.trueType(cb) === "Function") {
+    if (this.trueType(items) === "Array" || this.trueType(items) === "Object") {
+      for (let itemKey in items) {
+        if (items.hasOwnProperty(itemKey)) {
+          cb(itemKey, items[itemKey], items);
+        }
+      }
+    } else {
+      cb();
+      throw new Error("Unexpected type");
+    }
+  }
+
+  return;
+
+};
+
 module.exports = new What();

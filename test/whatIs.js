@@ -68,6 +68,11 @@ describe('WhatIs: ', function() {
     it("should return String for a phone number + string", function() {
       assert.equal(What.type("+44 7700 900804 - is my phone number"), "String");
     });
+    it("should return Function for a function", function() {
+      assert.equal(What.type(function() {
+        //do nothing
+      }), "Function");
+    });
   });
 
   describe('trueType', function() {
@@ -133,6 +138,11 @@ describe('WhatIs: ', function() {
     });
     it("should return String for a phone number + string", function() {
       assert.equal(What.trueType("+44 7700 900804 - is my phone number"), "String");
+    });
+    it("should return Function for a function", function() {
+      assert.equal(What.type(function() {
+        //do nothing
+      }), "Function");
     });
   });
 
@@ -357,4 +367,27 @@ describe('WhatIs: ', function() {
       assert.deepEqual(What.findInArray(["Hello", "Whole", "Welcome", ["Hello"]], "el"), ["Hello", "Welcome"]);
     });
   });
+
+  describe('for', function() {
+    it("should loop through if its an array", function(done) {
+      What.for([1], function(key, item, items) {
+        done();
+      });
+    });
+    it("should loop through if its an object", function(done) {
+      What.for({"key": "value"}, function(key, item, items) {
+        done();
+      });
+    });
+    it("should throw type error if object is Undefined", function(done) {
+      assert.throws(function() {
+        What.for(undefined, done);
+        done();
+      }, /Unexpected type/);
+    });
+    it("should return undefined for undefined callback", function() {
+      assert.equal(What.for(undefined, undefined), undefined);
+    });
+  });
+
 });
