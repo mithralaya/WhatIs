@@ -1,6 +1,6 @@
 {
   "name": "TFWhatIs",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A small util class.",
   "main": "whatis.js",
   "scripts": {
