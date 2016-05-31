@@ -230,4 +230,31 @@ What.prototype.for = function(items, cb) {
 
 };
 
+/**
+ * [function description]
+ * @param  {[type]} newObj   [description]
+ * @param  {[type]} path     [description]
+ * @param  {[type]} val      [description]
+ * @param  {[type]} notation [description]
+ * @return {[type]}          [description]
+ */
+What.prototype.setObjPath = function(newObj, path, val, notation) {
+  var _this = this;
+  function isObject(newObj) {
+    return (_this.trueType(newObj) === 'Object' && !!newObj);
+  }
+  notation = notation || '.';
+  path.split(notation).reduce(function(prev, cur, idx, arry) {
+    var isLast = (idx === arry.length - 1);
+    // if <cur> is last part of path
+    if (isLast) {
+      return (prev[cur] = val);
+    }
+    // if <cur> is not last part of path, then returns object if existing value is object or empty object
+    return (isObject(prev[cur])) ? prev[cur] : (prev[cur] = {});
+  }, newObj);
+
+  return newObj;
+};
+
 module.exports = new What();
