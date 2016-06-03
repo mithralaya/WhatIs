@@ -267,11 +267,11 @@ function syntaxHighlight(json) {
         if (/^"/.test(match)) {
             if (/:$/.test(match)) {
                 cls = function(match) {
-                  return chalk.magenta.bold(match);
+                  return chalk.red.dim(match);
                 };
             } else {
                 cls = function(match) {
-                  return chalk.green(match);
+                  return chalk.magenta(match);
                 };
             }
         } else if (/true|false/.test(match)) {
