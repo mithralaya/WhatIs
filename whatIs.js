@@ -262,7 +262,7 @@ function syntaxHighlight(json) {
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
         var cls = function(match) {
-          return chalk.orange(match);
+          return chalk.yellow(match);
         };
         if (/^"/.test(match)) {
             if (/:$/.test(match)) {
@@ -271,16 +271,16 @@ function syntaxHighlight(json) {
                 };
             } else {
                 cls = function(match) {
-                  return chalk.green.bold(match);
+                  return chalk.green(match);
                 };
             }
         } else if (/true|false/.test(match)) {
             cls = function(match) {
-              return chalk.blue.bold(match);
+              return chalk.blue(match);
             };
         } else if (/null/.test(match)) {
             cls = function(match) {
-              return chalk.cyan.bold(match);
+              return chalk.cyan(match);
             };
         }
         return cls(match);
@@ -294,7 +294,7 @@ What.prototype.c = function(what) {
       console.log(syntaxHighlight(JSON.stringify(what, undefined, 3)));
       break;
     case "Number":
-      console.log(chalk.orange(what));
+      console.log(chalk.yellow(what));
       break;
     case "String":
       console.log(chalk.gray(what));
