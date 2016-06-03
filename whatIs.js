@@ -267,7 +267,7 @@ function syntaxHighlight(json) {
         if (/^"/.test(match)) {
             if (/:$/.test(match)) {
                 cls = function(match) {
-                  return chalk.red.dim(match);
+                  return chalk.red(match);
                 };
             } else {
                 cls = function(match) {
