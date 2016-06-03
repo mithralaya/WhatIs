@@ -297,7 +297,7 @@ What.prototype.c = function(what) {
       console.log(chalk.yellow(what));
       break;
     case "String":
-      console.log(chalk.gray(what));
+      console.log(chalk.magenta(what));
       break;
     case "Undefined":
       console.log(chalk.red(what));
