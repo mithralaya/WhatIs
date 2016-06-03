@@ -1,6 +1,7 @@
 "use strict";
 
 var phoneNumber = require("libphonenumber");
+var chalk = require('chalk');
 
 function What() {
 
@@ -255,6 +256,74 @@ What.prototype.setObjPath = function(newObj, path, val, notation) {
   }, newObj);
 
   return newObj;
+};
+
+function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+        var cls = function(match) {
+          return chalk.orange(match);
+        };
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = function(match) {
+                  return chalk.magenta.bold(match);
+                };
+            } else {
+                cls = function(match) {
+                  return chalk.green.bold(match);
+                };
+            }
+        } else if (/true|false/.test(match)) {
+            cls = function(match) {
+              return chalk.blue.bold(match);
+            };
+        } else if (/null/.test(match)) {
+            cls = function(match) {
+              return chalk.cyan.bold(match);
+            };
+        }
+        return cls(match);
+    });
+}
+
+What.prototype.c = function(what) {
+
+  switch (this.trueType(what)) {
+    case "Object" || "Array":
+      console.log(syntaxHighlight(JSON.stringify(what, undefined, 3)));
+      break;
+    case "Number":
+      console.log(chalk.orange(what));
+      break;
+    case "String":
+      console.log(chalk.gray(what));
+      break;
+    case "Undefined":
+      console.log(chalk.red(what));
+      break;
+    case "Boolean":
+      console.log(chalk.blue(what));
+      break;
+    case "Date":
+      console.log(chalk.green(what));
+      break;
+    case "Null":
+      console.log(chalk.cyan(what));
+      break;
+    default:
+      console.log(chalk.black(what));
+      break;
+  }
+
+};
+
+What.prototype.ce = function(what) {
+  console.error(chalk.red(what));
+};
+
+What.prototype.cw = function(what) {
+  console.warn(chalk.yellow(what));
 };
 
 module.exports = new What();
