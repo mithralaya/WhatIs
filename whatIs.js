@@ -298,7 +298,7 @@ What.prototype.c = function(what) {
       break;
     case "String":
       try {
-        console.log(syntaxHighlight(JSON.stringify(JSON.parse(what, undefined, 3))));
+        console.log(syntaxHighlight(JSON.stringify(JSON.parse(what), undefined, 3)));
       } catch (e) {
         console.log(chalk.magenta(what));
       }
