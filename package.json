@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mithralaya/WhatIs.git"
+    "url": "git+https://github.com/mithralaya/whatsit.git"
   },
   "keywords": [
     "uitls",
@@ -20,9 +20,9 @@
   "author": "Karthik Vasudevan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mithralaya/WhatIs/issues"
+    "url": "https://github.com/mithralaya/whatsit/issues"
   },
-  "homepage": "https://github.com/mithralaya/WhatIs#readme",
+  "homepage": "https://github.com/mithralaya/whatsit#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
