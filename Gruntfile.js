@@ -11,14 +11,14 @@ module.exports = function(grunt) {
             verbose: true // If you need output with rule names http://jscs.info/overview.html#verbose
         },
         src: [
-              './whatIs.js',
+              './whatsit.js',
               './test/**/*.js'
             ]
     },
     //Jshint syntax validator.
     jshint: {
       all: [
-            './whatIs.js',
+            './whatsit.js',
             './test/**/*.js'
           ],
       options: {

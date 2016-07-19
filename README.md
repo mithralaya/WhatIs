@@ -1,4 +1,4 @@
-# WhatIs [![Build Status](https://travis-ci.org/mithralaya/WhatIs.svg?branch=master)](https://travis-ci.org/mithralaya/WhatIs)
+# WhatsIt
 A small util class.
 
 > The plugin is only available for Node.JS currently.
@@ -6,14 +6,14 @@ A small util class.
 ##Install package
 
 ```js
-npm install TFWhatIs
+npm install whatsit --save
 ```
 *TF stands for [Team First](http://teamfirstapp.com)*
 
 ##Include package
 
 ```js
-var W = require('TFWhatIs');
+var W = require('whatsit');
 ```
 
 ##Functions available
@@ -53,7 +53,7 @@ W.type("+44 7700 900804"); //'Phone'
 ####trueType:
 
 Just check for type and returns true javascript type for an object
-
+1
 ```js
 W.type("hello world"); //'String'
 W.type(123); //'Number'
@@ -171,4 +171,4 @@ W.for(undefined, undefined) // returns undefined
 
 The MIT License (MIT)
 
-[Back to Top](#whatis-)
+[Back to Top](#whatsit-)

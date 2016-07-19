@@ -1,9 +1,9 @@
 "use strict";
 
 var assert = require("assert"),
-    What = require("../whatIs");
+    What = require("../whatsit");
 
-describe('WhatIs: ', function() {
+describe('WhatsIt: ', function() {
   describe('type', function() {
     it("should return String for a string variable", function() {
       assert.equal(What.type("hello"), "String");
