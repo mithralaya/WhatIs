@@ -316,7 +316,7 @@ What.prototype.c = function(what) {
       console.log(chalk.cyan(what));
       break;
     default:
-      console.log(chalk.black(what));
+      console.log(what);
       break;
   }
 
@@ -328,6 +328,18 @@ What.prototype.ce = function(what) {
 
 What.prototype.cw = function(what) {
   console.warn(chalk.yellow(what));
+};
+
+What.prototype.unique = function(inputArr) {
+  return inputArr.filter(function(value, index, self) {
+    return self.indexOf(value) === index;
+  });
+};
+
+What.prototype.difference = function(inputArr, compareWith) {
+  return inputArr.filter(function(index) {
+    return compareWith.indexOf(index) < 0;
+  });
 };
 
 module.exports = new What();

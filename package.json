@@ -1,6 +1,6 @@
 {
   "name": "whatsit",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "A small util class.",
   "main": "whatsit.js",
   "scripts": {
