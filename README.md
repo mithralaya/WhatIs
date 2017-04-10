@@ -55,21 +55,21 @@ W.type("+44 7700 900804"); //'Phone'
 Just check for type and returns true javascript type for an object
 1
 ```js
-W.type("hello world"); //'String'
-W.type(123); //'Number'
-W.type(123.23); //'Number'
-W.type(NaN); //'Number'
-W.type(Infinity); //'Number'
-W.type(-Infinity); //'Number'
-W.type({}); //'Object'
-W.type(undefined); //'Undefined'
-W.type([]); //'Array'
-W.type(true); //'Boolean'
-W.type(new Date()); //'Date'
-W.type(null); //'Null'
-W.type("test@test.com"); //'String'
-W.type("http://www.google.com/?q=testing"); //'String'
-W.type("+44 7700 900804"); //'String'
+W.trueType("hello world"); //'String'
+W.trueType(123); //'Number'
+W.trueType(123.23); //'Number'
+W.trueType(NaN); //'Number'
+W.trueType(Infinity); //'Number'
+W.trueType(-Infinity); //'Number'
+W.trueType({}); //'Object'
+W.trueType(undefined); //'Undefined'
+W.trueType([]); //'Array'
+W.trueType(true); //'Boolean'
+W.trueType(new Date()); //'Date'
+W.trueType(null); //'Null'
+W.trueType("test@test.com"); //'String'
+W.trueType("http://www.google.com/?q=testing"); //'String'
+W.trueType("+44 7700 900804"); //'String'
 ```
 
 #### isNaN:
@@ -78,7 +78,7 @@ W.isNaN(NaN); //true
 W.isNaN(1312); //false
 ```
 
-####isFalsey:
+#### isFalsey:
 
 Even checks for empty object and array.
 
